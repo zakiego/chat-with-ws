@@ -32,5 +32,5 @@ io.on("connection", (socket) => {
 });
 
 server.listen(5331, () => {
-  console.log("WebSocket server listening on port 3001");
+  console.log("WebSocket server listening on port 5331");
 });
