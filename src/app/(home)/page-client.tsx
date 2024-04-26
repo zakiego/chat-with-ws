@@ -42,7 +42,7 @@ export const PageClient = ({ id }: PageClientProps) => {
 
   if (!name) {
     return (
-      <div className=" flex min-h-screen w-full max-w-[800px] flex-col rounded-lg border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-950">
+      <div className=" flex min-h-screen w-full flex-col rounded-lg border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-950">
         <header className="flex items-center justify-between border-b border-gray-200 px-6 py-4 dark:border-gray-800">
           <h2 className="text-lg font-medium">Chat</h2>
         </header>
@@ -72,7 +72,7 @@ export const PageClient = ({ id }: PageClientProps) => {
   }
 
   return (
-    <div className="flex min-h-screen w-full max-w-[800px] flex-col rounded-lg border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-950">
+    <div className="flex min-h-screen w-full flex-col rounded-lg border border-gray-200 bg-white dark:border-gray-800 dark:bg-gray-950">
       <header className="flex items-center justify-between border-b border-gray-200 px-6 py-4 dark:border-gray-800">
         <h2 className="text-lg font-medium">Chat</h2>
         <div className="flex items-center gap-2">
