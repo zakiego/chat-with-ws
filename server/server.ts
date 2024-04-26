@@ -1,4 +1,5 @@
 import http from "node:http";
+import type { Chat, Join } from "@/lib/type";
 
 const server = http.createServer((req, res) => {});
 
@@ -10,14 +11,19 @@ const io = new Server(server, {
 });
 
 io.on("connection", (socket) => {
-  socket.on("join", ({ name, id }) => {
-    console.log(`${name} joined the chat with id: ${id}`);
-    io.emit("join", { name, id, type: "join" });
-  });
+  socket.on("message", (data: Chat | Join) => {
+    if (data.type === "chat") {
+      const time = new Date().toLocaleTimeString();
+      io.emit("message", { ...data, time });
+      return;
+    }
+    if (data.type === "join") {
+      console.log(`User ${data.name} joined with id ${data.id}`);
+      io.emit("message", data);
+      return;
+    }
 
-  socket.on("chat", (message) => {
-    const time = new Date().toLocaleTimeString();
-    io.emit("chat", { ...message, time, type: "chat" });
+    console.error("Invalid event type", data);
   });
 
   socket.on("disconnect", () => {
@@ -25,6 +31,6 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(3001, () => {
+server.listen(5331, () => {
   console.log("WebSocket server listening on port 3001");
 });
