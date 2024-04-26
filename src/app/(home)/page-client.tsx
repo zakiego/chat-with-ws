@@ -9,7 +9,7 @@ import { getInitials } from "@/lib/utils";
 import React, { useState, useEffect } from "react";
 import io from "socket.io-client";
 
-const socket = io("http://vps.zakiego.com:5331"); // Replace with your server URL
+const socket = io("https://ws-chat.zakiego.com"); // Replace with your server URL
 
 // const socket = io("http://localhost:5331");
 
