@@ -1,7 +1,7 @@
 "use client";
 
 import { JoinMessage, MyMessage, TheirMessage } from "@/components/chat";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import type { Chat, Join } from "@/lib/type";
@@ -9,7 +9,9 @@ import { getInitials } from "@/lib/utils";
 import React, { useState, useEffect } from "react";
 import io from "socket.io-client";
 
-const socket = io("http://localhost:5331"); // Replace with your server URL
+const socket = io("http://vps.zakiego.com:5331"); // Replace with your server URL
+
+// const socket = io("http://localhost:5331");
 
 interface PageClientProps {
   id: string;
